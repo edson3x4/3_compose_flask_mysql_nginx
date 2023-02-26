@@ -11,7 +11,7 @@ services:
      volumes:
         - app:/app
      restart: always
-#       - /home/ubuserver182/3_compose_flask/metadata:/app
+#       - /home/userlinux/3_compose_flask/metadata:/app
    db:
      image: mysql:8.0
      command: --character-set-server=utf8 --collation-server=utf8_bin
