@@ -1,0 +1,5 @@
+Flask==2.2.2
+uWSGI==2.0.20
+mysql-connector-python
+pymysql
+typing

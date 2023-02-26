@@ -1,0 +1,39 @@
+version: '3'
+services:
+   flask:
+     build: ./flask
+     container_name: flask
+     restart: always
+     environment:
+        - APP_NAME=MyFlaskApp
+     expose:
+        - 8080
+     volumes:
+        - app:/app
+     restart: always
+#       - /home/ubuserver182/3_compose_flask/metadata:/app
+   db:
+     image: mysql:8.0
+     command: --character-set-server=utf8 --collation-server=utf8_bin
+     container_name: server1_db_mysql
+     ports:
+        - 3306:3306
+     environment:
+       - TZ=America/Lima
+       - MYSQL_ROOT_PASSWORD=root_pwd
+       - MYSQL_PASSWORD=server1_pwd
+       - MYSQL_USER=server1_user
+       - MYSQL_DATABASE=server1_db
+     volumes:
+        - ./db:/docker-entrypoint-initdb.d/:ro
+        - /home/data/db_flask_nginx/database/mysql:/var/lib/mysql
+        - /etc/localtime:/etc/localtime:ro
+     restart: always  
+   nginx:
+      build: ./nginx
+      container_name: nginx
+      restart: always
+      ports:
+          - 8003:80
+volumes:
+      app:

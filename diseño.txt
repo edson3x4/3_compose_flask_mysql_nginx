@@ -1,0 +1,22 @@
+Proyect/
+├── db
+│   └── init.sql
+└── flask
+├── app
+│   ├── __init__.py
+│   └── view.py
+└── run.py
+
+
+Proyect/
+├── db
+│   └── init.sql
+├── flask
+├── app
+│   ├── __init__.py
+│   └── view.py
+├── .dockerignore
+├── app.ini
+├── Dockerfile
+├── requirements.txt
+└── run.py
